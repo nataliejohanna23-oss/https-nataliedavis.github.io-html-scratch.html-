@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natalie Davis - Professional Portfolio</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --light-bg: #f8f9fa;
+            --dark-text: #2d3748;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+        }
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white !important;
+        }
+        .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            margin-left: 20px;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .hero-section p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            color: var(--secondary-color);
+        }
+        .section-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+        .resume-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        .resume-section {
+            margin-bottom: 30px;
+        }
+        .resume-section h3 {
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+        }
+        .resume-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .resume-item:last-child {
+            border-bottom: none;
+        }
+        .resume-item h4 {
+            color: var(--dark-text);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .resume-item .meta {
+            color: #666;
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+        .resume-item ul {
+            margin-top: 10px;
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+        .skill-badge {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+        .footer {
+            background-color: var(--dark-text);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .project-links {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .project-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .project-card h4 {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .project-card p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">💼 Natalie Davis</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="scratch.html">Fitness Hub</a></li>
+                    <li class="nav-item"><a class="nav-link" href="app.html">Workout App</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="container">
+            <h1>Natalie Davis</h1>
+            <p>Healthcare Professional | Web Developer | Fitness Enthusiast</p>
+            <a href="#resume" class="cta-button">View Resume</a>
+            <a href="scratch.html" class="cta-button">Explore Fitness Hub</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="resume" class="resume-container">
+            <h2 class="section-title">📋 Professional Resume</h2>
+
+            <div class="resume-section">
+                <h3>Education</h3>
+                <div class="resume-item">
+                    <h4>Bachelor of Science</h4>
+                    <div class="meta">Brigham Young University (BYU)</div>
+                    <p>Undergraduate degree with focus on professional development and healthcare industry knowledge.</p>
+                </div>
+                <div class="resume-item">
+                    <h4>High School Diploma</h4>
+                    <div class="meta">Davis High School (DHHS)</div>
+                    <p>Graduated with strong academic foundation and community involvement.</p>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h3>Professional Experience</h3>
+                <div class="resume-item">
+                    <h4>Healthcare Support Specialist</h4>
+                    <div class="meta">Medical Office | Current Role</div>
+                    <ul>
+                        <li>Provide patient support and communication in fast-paced medical environments</li>
+                        <li>Manage administrative tasks and office organization</li>
+                        <li>Assist healthcare providers with patient care coordination</li>
+                        <li>Maintain HIPAA compliance and handle sensitive patient information</li>
+                        <li>Support billing and scheduling operations</li>
+                        <li>Demonstrate strong interpersonal and professional communication skills</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h3>Core Competencies</h3>
+                <div>
+                    <span class="skill-badge">Patient Communication</span>
+                    <span class="skill-badge">Medical Terminology</span>
+                    <span class="skill-badge">Office Administration</span>
+                    <span class="skill-badge">Healthcare Systems</span>
+                    <span class="skill-badge">HIPAA Compliance</span>
+                    <span class="skill-badge">Scheduling & Coordination</span>
+                    <span class="skill-badge">Attention to Detail</span>
+                    <span class="skill-badge">Team Collaboration</span>
+                    <span class="skill-badge">Problem Solving</span>
+                    <span class="skill-badge">Organization</span>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h3>Technical Skills</h3>
+                <div>
+                    <span class="skill-badge">HTML & CSS</span>
+                    <span class="skill-badge">JavaScript</span>
+                    <span class="skill-badge">Web Development</span>
+                    <span class="skill-badge">Bootstrap</span>
+                    <span class="skill-badge">Responsive Design</span>
+                    <span class="skill-badge">Office Software</span>
+                    <span class="skill-badge">Data Management</span>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h3>Soft Skills</h3>
+                <div>
+                    <span class="skill-badge">Communication</span>
+                    <span class="skill-badge">Reliability</span>
+                    <span class="skill-badge">Work Ethic</span>
+                    <span class="skill-badge">Adaptability</span>
+                    <span class="skill-badge">Professionalism</span>
+                    <span class="skill-badge">Customer Service</span>
+                    <span class="skill-badge">Leadership</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="projects" class="project-links">
+            <h2 class="section-title">🚀 My Projects</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <h4>Fitness & Wellness Hub</h4>
+                        <p>A comprehensive fitness website featuring workout guides, health benefits, and exercise recommendations. Includes embedded videos and live data visualization.</p>
+                        <a href="scratch.html" class="btn btn-primary">Visit Fitness Hub →</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <h4>Interactive Workout Generator</h4>
+                        <p>An AI-powered web app that generates personalized workouts based on fitness level, type, and duration. Track your workouts and build your fitness history.</p>
+                        <a href="app.html" class="btn btn-primary">Launch Workout App →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 Natalie Davis. All rights reserved.</p>
+        <p><a href="scratch.html">Fitness Hub</a> | <a href="app.html">Workout App</a> | <a href="index.html">Home</a></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
