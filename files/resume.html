@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Résumé | Your Name</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root { --brand: #1a1a2e; --accent: #e94560; --light-bg: #f8f7f4; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--light-bg); color: var(--brand); }
+    h1,h2,h3 { font-family: 'DM Serif Display', serif; }
+    .navbar { background: var(--brand) !important; }
+    .navbar-brand, .nav-link { color: #fff !important; }
+    .nav-link:hover { color: var(--accent) !important; }
+    .resume-header { background: var(--brand); color: #fff; padding: 60px 0 40px; }
+    .resume-header h1 { font-size: 2.8rem; }
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .resume-section { margin-bottom: 2.5rem; }
+    .resume-section h2 {
+      font-size: 1.5rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 6px;
+      margin-bottom: 1.2rem;
+    }
+    .entry { margin-bottom: 1.4rem; }
+    .entry-title { font-weight: 500; font-size: 1.05rem; }
+    .entry-meta { color: #888; font-size: 0.875rem; }
+    .badge-skill {
+      background: var(--brand);
+      color: #fff;
+      border-radius: 2px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      margin: 3px;
+      display: inline-block;
+    }
+    .badge-skill.accent { background: var(--accent); }
+    footer { background: var(--brand); color: #aaa; padding: 32px 0; font-size: 0.875rem; }
+    footer a { color: var(--accent); text-decoration: none; }
+    @media print {
+      .navbar, footer, .no-print { display: none !important; }
+      .resume-header { background: #fff !important; color: var(--brand) !important; padding: 20px 0; }
+      .resume-header h1, .resume-header p { color: var(--brand) !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html" style="font-family:'DM Serif Display',serif; font-size:1.4rem;">YourName</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon" style="filter:invert(1)"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="resume.html">Résumé</a></li>
+          <li class="nav-item"><a class="nav-link" href="scratch.html">Fitness Page</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="resume-header">
+    <div class="container">
+      <p class="section-label">Résumé</p>
+      <h1>Your Full Name</h1>
+      <p class="mb-0" style="color:#ccc;">[Your Major] &middot; [Your University] &middot; Class of [Year]</p>
+    </div>
+  </div>
+
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-8">
+
+        <!-- Education -->
+        <div class="resume-section">
+          <h2>Education</h2>
+          <div class="entry">
+            <div class="entry-title">[Your University]</div>
+            <div class="entry-meta">Bachelor of Science in [Your Major] &middot; Expected [Graduation Year]</div>
+            <ul class="mt-2">
+              <li>GPA: [X.XX] / 4.00</li>
+              <li>Relevant coursework: [Course 1], [Course 2], [Course 3]</li>
+              <li>[Any academic honor or distinction]</li>
+            </ul>
+          </div>
+          <div class="entry">
+            <div class="entry-title">[High School Name]</div>
+            <div class="entry-meta">High School Diploma &middot; [City, State] &middot; [Year]</div>
+          </div>
+        </div>
+
+        <!-- Work Experience -->
+        <div class="resume-section">
+          <h2>Work Experience</h2>
+          <div class="entry">
+            <div class="entry-title">[Job Title] &mdash; [Company Name]</div>
+            <div class="entry-meta">[City, State] &middot; [Month Year] &ndash; [Month Year]</div>
+            <ul class="mt-2">
+              <li>Describe what you did and the impact it had (use action verbs)</li>
+              <li>Quantify results where possible (e.g., "Increased sales by 15%")</li>
+              <li>Highlight any tools, technologies, or skills used</li>
+            </ul>
+          </div>
+          <div class="entry">
+            <div class="entry-title">[Job Title] &mdash; [Company Name]</div>
+            <div class="entry-meta">[City, State] &middot; [Month Year] &ndash; [Month Year]</div>
+            <ul class="mt-2">
+              <li>Describe responsibilities and achievements</li>
+              <li>Include any leadership or teamwork experience</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="resume-section">
+          <h2>Projects</h2>
+          <div class="entry">
+            <div class="entry-title">Personal Portfolio Website</div>
+            <div class="entry-meta">HTML, CSS, JavaScript, Bootstrap &middot; [Year]</div>
+            <ul class="mt-2">
+              <li>Designed and built a multi-page personal portfolio hosted on GitHub Pages</li>
+              <li>Included interactive web app, Tableau data visualization, and custom styling</li>
+            </ul>
+          </div>
+          <div class="entry">
+            <div class="entry-title">[Another Project]</div>
+            <div class="entry-meta">[Tools/Technologies] &middot; [Year]</div>
+            <ul class="mt-2">
+              <li>Brief description of the project and your role</li>
+              <li>Key outcome or what you learned</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-4">
+
+        <!-- Skills -->
+        <div class="resume-section">
+          <h2>Skills</h2>
+          <p class="section-label">Technical</p>
+          <div class="mb-3">
+            <span class="badge-skill accent">HTML/CSS</span>
+            <span class="badge-skill accent">JavaScript</span>
+            <span class="badge-skill">Microsoft Excel</span>
+            <span class="badge-skill">Google Suite</span>
+            <span class="badge-skill">[Add more]</span>
+          </div>
+          <p class="section-label">Professional</p>
+          <div class="mb-3">
+            <span class="badge-skill">Communication</span>
+            <span class="badge-skill">Teamwork</span>
+            <span class="badge-skill">Problem Solving</span>
+            <span class="badge-skill">Time Management</span>
+          </div>
+          <p class="section-label">Languages</p>
+          <div>
+            <span class="badge-skill">English (Native)</span>
+            <span class="badge-skill">[Other language]</span>
+          </div>
+        </div>
+
+        <!-- Awards & Honors -->
+        <div class="resume-section">
+          <h2>Awards & Honors</h2>
+          <div class="entry">
+            <div class="entry-title">[Award Name]</div>
+            <div class="entry-meta">[Issuing Organization] &middot; [Year]</div>
+          </div>
+          <div class="entry">
+            <div class="entry-title">Dean's List</div>
+            <div class="entry-meta">[Your University] &middot; [Semester/Year]</div>
+          </div>
+        </div>
+
+        <!-- Activities -->
+        <div class="resume-section">
+          <h2>Activities</h2>
+          <div class="entry">
+            <div class="entry-title">[Club or Organization]</div>
+            <div class="entry-meta">[Role] &middot; [Year–Present]</div>
+          </div>
+          <div class="entry">
+            <div class="entry-title">Fitness & Strength Training</div>
+            <div class="entry-meta">Personal interest &middot; Ongoing</div>
+          </div>
+        </div>
+
+        <div class="no-print">
+          <button onclick="window.print()" class="btn btn-sm" style="background:var(--accent);color:#fff;border-radius:2px;">🖨 Print / Save as PDF</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center">
+    <div class="container">
+      <p class="mb-1">Your Name &mdash; [Your University]</p>
+      <p class="mb-0"><a href="index.html">Home</a> &middot; <a href="scratch.html">Fitness Page</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

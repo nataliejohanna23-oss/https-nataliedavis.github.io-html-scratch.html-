@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fitness & Gym | Your Name</title>
+  <!-- Custom stylesheet (required) -->
+  <link rel="stylesheet" href="styles.css"/>
+  <!-- Google Fonts for Oswald + Bebas Neue -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- On-page anchor target -->
+  <div id="top"></div>
+
+  <!-- Navigation -->
+  <nav class="scratch-nav">
+    <span class="nav-logo">Iron Log</span>
+    <a href="index.html">Home</a>
+    <a href="resume.html">Résumé</a>
+    <a href="#about">About</a>
+    <a href="#routine">Routine</a>
+    <a href="#video">Watch</a>
+    <a href="#data">Data</a>
+    <a href="app.html">Workout App</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero-div">
+    <h1>Train Hard.<br>Track Smart.</h1>
+    <p>A deep dive into my fitness journey — routines, goals, and the data behind the gains.</p>
+    <a href="#about" class="anchor-label">↓ Explore</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content-div">
+
+    <!-- About Section -->
+    <div class="card-div" id="about">
+      <span class="anchor-label">About</span>
+      <h2 class="section-heading">My Fitness Journey</h2>
+      <p>Fitness has been a cornerstone of my life for [X] years. What started as a way to stay healthy turned into a genuine passion for strength training, discipline, and continuous self-improvement. Whether I'm hitting a new personal record on the squat rack or just getting my daily steps in, I believe movement is medicine.</p>
+      <img class="gym-img" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80" alt="Gym weight rack with barbells"/>
+    </div>
+
+    <!-- Routine Section — nested list (required) -->
+    <div class="card-div" id="routine">
+      <span class="anchor-label">Routine</span>
+      <h2 class="section-heading">My Weekly Split</h2>
+      <p>Here's how I structure my training week. Each day focuses on a specific muscle group, with nested warm-up protocols inside each session:</p>
+
+      <!-- REQUIRED: Ordered list with unordered lists nested inside -->
+      <ol class="routine-list">
+        <li>
+          <strong>Monday — Push (Chest, Shoulders, Triceps)</strong>
+          <ul class="gym-list" style="margin-top:8px;">
+            <li>Bench Press: 4 sets × 6–8 reps</li>
+            <li>Overhead Press: 3 sets × 8 reps</li>
+            <li>Lateral Raises: 3 sets × 12 reps</li>
+            <li>Tricep Pushdowns: 3 sets × 12 reps</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Tuesday — Pull (Back, Biceps)</strong>
+          <ul class="gym-list" style="margin-top:8px;">
+            <li>Deadlift: 4 sets × 5 reps</li>
+            <li>Pull-ups: 4 sets to failure</li>
+            <li>Barbell Row: 3 sets × 8 reps</li>
+            <li>Hammer Curls: 3 sets × 10 reps</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Wednesday — Rest or Active Recovery</strong>
+          <ul class="gym-list" style="margin-top:8px;">
+            <li>20–30 min walk or light cardio</li>
+            <li>Foam rolling and mobility work</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Thursday — Legs</strong>
+          <ul class="gym-list" style="margin-top:8px;">
+            <li>Squat: 4 sets × 6–8 reps</li>
+            <li>Romanian Deadlift: 3 sets × 10 reps</li>
+            <li>Leg Press: 3 sets × 12 reps</li>
+            <li>Calf Raises: 4 sets × 15 reps</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Friday — Full Body / Accessory</strong>
+          <ul class="gym-list" style="margin-top:8px;">
+            <li>Dips: 3 sets × 10 reps</li>
+            <li>Face Pulls: 3 sets × 15 reps</li>
+            <li>Plank: 3 × 60 seconds</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Saturday & Sunday — Rest</strong>
+          <ul class="gym-list" style="margin-top:8px;">
+            <li>Prioritize sleep and nutrition</li>
+            <li>Optional: recreational sports or hiking</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- YouTube Video Section (required) -->
+    <div class="card-div" id="video">
+      <span class="anchor-label">Watch</span>
+      <h2 class="section-heading">Learn the Basics</h2>
+      <p>This video covers the fundamentals of strength training — perfect whether you're just starting out or looking to refine your form.</p>
+      <!-- REQUIRED: Embedded YouTube video -->
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/R6gZoAzAhCg"
+          title="Strength Training for Beginners"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p style="text-align:center; font-size:0.85rem; color:#666;">(Video may not load locally — works once hosted online)</p>
+    </div>
+
+    <!-- Nutrition tips -->
+    <div class="card-div">
+      <span class="anchor-label">Nutrition</span>
+      <h2 class="section-heading">Fueling the Grind</h2>
+      <p>Training hard means nothing without fueling right. Here are the nutrition principles I follow:</p>
+      <ul class="gym-list">
+        <li>High protein intake — aim for ~0.8–1g per lb of bodyweight</li>
+        <li>Calorie surplus on training days, maintenance on rest days</li>
+        <li>Prioritize whole foods: lean meats, eggs, rice, oats, and vegetables</li>
+        <li>Hydration — minimum 3 liters of water per day</li>
+        <li>Creatine monohydrate — 5g daily (well-researched and effective)</li>
+        <li>Sleep — 7–9 hours for maximum muscle repair and recovery</li>
+      </ul>
+    </div>
+
+    <!-- Tableau Data Visualization (required) -->
+    <div class="card-div" id="data">
+      <span class="anchor-label">Data</span>
+      <h2 class="section-heading">Fitness by the Numbers</h2>
+      <p>Data visualization of fitness trends — replace the placeholder below with your Tableau Public embed code.</p>
+
+      <!-- REQUIRED: Interactive Tableau embed — REPLACE THIS with your real embed code from Tableau Public -->
+      <div class="tableau-wrap">
+        <!-- TO REPLACE: Go to Tableau Public → your viz → Share → Embed Code, paste it here -->
+        <div style="background:#1a1a1a; padding:60px 40px; text-align:center; border:2px dashed #ff4757; border-radius:4px;">
+          <p style="color:#ff4757; font-family:'Bebas Neue',Impact,sans-serif; font-size:1.8rem; letter-spacing:2px; margin-bottom:8px;">Tableau Viz Goes Here</p>
+          <p style="color:#666; font-size:0.9rem;">Replace this block with your Tableau Public embed code.<br>
+          Go to <strong style="color:#aaa;">Tableau Public</strong> → find your visualization → click <strong style="color:#aaa;">Share</strong> → copy the <strong style="color:#aaa;">Embed Code</strong> and paste it here.</p>
+          <p style="color:#555; font-size:0.8rem; margin-top:12px;">Example embed code looks like:<br>
+          <code style="color:#888;">&lt;div class='tableauPlaceholder'&gt;...&lt;/div&gt;&lt;script ...&gt;&lt;/script&gt;</code></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- App link -->
+    <div class="card-div">
+      <span class="anchor-label">App</span>
+      <h2 class="section-heading">Track Your Workouts</h2>
+      <p>I built an interactive workout tracker to log your sets, reps, and progress. Give it a try!</p>
+      <a href="app.html" class="anchor-label" style="font-size:1rem; padding:12px 28px;">Launch Workout Tracker →</a>
+    </div>
+
+    <!-- Back to top (on-page anchor usage) -->
+    <div style="text-align:center; padding:20px 0 40px;">
+      <a href="#top" class="back-to-top">↑ Back to Top</a>
+    </div>
+
+  </div><!-- end content-div -->
+
+  <footer class="scratch-footer">
+    <p>Made by <strong style="color:#f0f0f0;">Your Name</strong> &mdash; 
+    <a href="index.html">Home</a> &middot; 
+    <a href="resume.html">Résumé</a> &middot; 
+    <a href="app.html">Workout App</a></p>
+  </footer>
+
+</body>
+</html>
