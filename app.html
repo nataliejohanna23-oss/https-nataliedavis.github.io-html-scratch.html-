@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Generator & Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .app-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            padding: 20px 0;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .workout-results {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            min-height: 100px;
+        }
+
+        .workout-results h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .exercise-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .exercise-item strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.05rem;
+        }
+
+        .exercise-item em {
+            color: #666;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .tracker-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .tracker-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+
+        .workout-info {
+            flex: 1;
+        }
+
+        .workout-info strong {
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .workout-info small {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .delete-btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            width: auto;
+            margin-left: 10px;
+        }
+
+        .delete-btn:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+
+        .add-btn {
+            background: #51cf66;
+            font-size: 0.9rem;
+            padding: 10px;
+            width: auto;
+            margin-top: 10px;
+        }
+
+        .add-btn:hover {
+            background: #40c057;
+        }
+
+        .empty-message {
+            color: #999;
+            text-align: center;
+            padding: 30px 20px;
+            font-style: italic;
+        }
+
+        .stats {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .stat-box {
+            display: inline-block;
+            margin: 10px 15px;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            display: block;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .tracker-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .delete-btn {
+                margin-left: 0;
+                margin-top: 10px;
+                width: 100%;
+            }
+        }
+
+        .nav-back {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .nav-back a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-back a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <h1>💪 Workout Generator & Tracker</h1>
+            <p>Create personalized workouts and track your fitness journey</p>
+        </div>
+
+        <div class="main-content">
+            <div class="card">
+                <h2>🎯 Workout Generator</h2>
+                <form id="workoutForm">
+                    <div class="form-group">
+                        <label for="fitnessLevel">Fitness Level:</label>
+                        <select id="fitnessLevel" required>
+                            <option value="">Select Level</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="workoutType">Workout Type:</label>
+                        <select id="workoutType" required>
+                            <option value="">Select Type</option>
+                            <option value="cardio">Cardio</option>
+                            <option value="strength">Strength Training</option>
+                            <option value="flexibility">Flexibility</option>
+                            <option value="hiit">HIIT</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duration">Duration (minutes):</label>
+                        <input type="number" id="duration" min="10" max="120" value="30" required>
+                    </div>
+
+                    <button type="submit">Generate Workout</button>
+                </form>
+
+                <div class="workout-results" id="results">
+                    <p class="empty-message">Fill out the form and click "Generate Workout" to get started!</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Workout Tracker</h2>
+                
+                <div class="stats" id="statsContainer" style="display: none;">
+                    <div class="stat-box">
+                        <span id="totalWorkouts">0</span>
+                        <span class="stat-label">Total Workouts</span>
+                    </div>
+                    <div class="stat-box">
+                        <span id="totalMinutes">0</span>
+                        <span class="stat-label">Total Minutes</span>
+                    </div>
+                </div>
+
+                <div id="tracker">
+                    <p class="empty-message">No workouts saved yet. Generate and save a workout!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-back">
+            <a href="index.html">← Back to Home</a>
+            <a href="scratch.html" style="margin-left: 10px;">View Fitness Hub →</a>
+        </div>
+    </div>
+
+    <script>
+        const workoutDatabase = {
+            beginner: {
+                cardio: [
+                    { name: 'Brisk Walking', duration: '20-30 min', intensity: 'Light' },
+                    { name: 'Jumping Jacks', duration: '2-3 min', intensity: 'Moderate' },
+                    { name: 'Marching in Place', duration: '10-15 min', intensity: 'Light' },
+                    { name: 'Dancing', duration: '20-30 min', intensity: 'Moderate' }
+                ],
+                strength: [
+                    { name: 'Bodyweight Squats', duration: '3 sets x 10 reps', intensity: 'Moderate' },
+                    { name: 'Wall Push-ups', duration: '3 sets x 10 reps', intensity: 'Light' },
+                    { name: 'Planks', duration: '3 sets x 20 sec', intensity: 'Moderate' },
+                    { name: 'Lunges', duration: '3 sets x 8 reps', intensity: 'Moderate' }
+                ],
+                flexibility: [
+                    { name: 'Hamstring Stretch', duration: '30 sec each leg', intensity: 'Light' },
+                    { name: 'Cat-Cow Stretch', duration: '10 reps', intensity: 'Light' },
+                    { name: 'Quad Stretch', duration: '30 sec each leg', intensity: 'Light' },
+                    { name: 'Child\'s Pose', duration: '1 min', intensity: 'Light' }
+                ],
+                hiit: [
+                    { name: 'Alternating Knee Raises', duration: '30 sec on, 30 sec off', intensity: 'High' },
+                    { name: 'High Knees', duration: '30 sec on, 30 sec off', intensity: 'High' },
+                    { name: 'Jump Rope (or simulate)', duration: '30 sec on, 30 sec off', intensity: 'High' },
+                    { name: 'Burpees', duration: '20 sec on, 40 sec off', intensity: 'Very High' }
+                ]
+            },
+            intermediate: {
+                cardio: [
+                    { name: 'Running', duration: '30-45 min', intensity: 'Moderate-High' },
+                    { name: 'Cycling', duration: '30-45 min', intensity: 'Moderate' },
+                    { name: 'Jump Rope', duration: '20-30 min', intensity: 'High' },
+                    { name: 'Swimming', duration: '30-45 min', intensity: 'Moderate-High' }
+                ],
+                strength: [
+                    { name: 'Dumbbell Squats', duration: '4 sets x 12 reps', intensity: 'High' },
+                    { name: 'Push-ups', duration: '4 sets x 15 reps', intensity: 'High' },
+                    { name: 'Deadlifts', duration: '4 sets x 8 reps', intensity: 'Very High' },
+                    { name: 'Dumbbell Rows', duration: '4 sets x 10 reps', intensity: 'High' }
+                ],
+                flexibility: [
+                    { name: 'Yoga Flow', duration: '30-40 min', intensity: 'Moderate' },
+                    { name: 'Pilates', duration: '30-45 min', intensity: 'Moderate' },
+                    { name: 'Dynamic Stretching', duration: '15-20 min', intensity: 'Light' },
+                    { name: 'Deep Stretching Routine', duration: '20-30 min', intensity: 'Light' }
+                ],
+                hiit: [
+                    { name: 'Mountain Climbers', duration: '40 sec on, 20 sec off', intensity: 'Very High' },
+                    { name: 'Box Jumps', duration: '40 sec on, 20 sec off', intensity: 'Very High' },
+                    { name: 'Burpees', duration: '40 sec on, 20 sec off', intensity: 'Very High' },
+                    { name: 'Kettlebell Swings', duration: '40 sec on, 20 sec off', intensity: 'Very High' }
+                ]
+            },
+            advanced: {
+                cardio: [
+                    { name: 'Long Distance Running', duration: '60+ min', intensity: 'High' },
+                    { name: 'Triathlon Training', duration: '90+ min', intensity: 'Very High' },
+                    { name: 'Speed Training', duration: '45-60 min', intensity: 'Very High' },
+                    { name: 'Stair Climbing', duration: '30-45 min', intensity: 'Very High' }
+                ],
+                strength: [
+                    { name: 'Olympic Lifting', duration: '5 sets x 5 reps', intensity: 'Maximum' },
+                    { name: 'Powerlifting', duration: '5 sets x 3 reps', intensity: 'Maximum' },
+                    { name: 'Advanced Bodyweight', duration: '5 sets x 20 reps', intensity: 'Very High' },
+                    { name: 'Weighted Exercises', duration: '5 sets x 8 reps', intensity: 'Maximum' }
+                ],
+                flexibility: [
+                    { name: 'Advanced Yoga', duration: '60-75 min', intensity: 'High' },
+                    { name: 'Mobility Training', duration: '40-50 min', intensity: 'Moderate-High' },
+                    { name: 'Active Recovery', duration: '30-45 min', intensity: 'Light-Moderate' },
+                    { name: 'Fascia Release', duration: '30-40 min', intensity: 'Moderate' }
+                ],
+                hiit: [
+                    { name: 'CrossFit WOD', duration: '45-60 min', intensity: 'Maximum' },
+                    { name: 'Tabata Protocol', duration: '20-30 min', intensity: 'Maximum' },
+                    { name: 'Advanced HIIT', duration: '30-40 min', intensity: 'Maximum' },
+                    { name: 'Combat Training', duration: '45-60 min', intensity: 'Maximum' }
+                ]
+            }
+        };
+
+        const form = document.getElementById('workoutForm');
+        const resultsDiv = document.getElementById('results');
+        const trackerDiv = document.getElementById('tracker');
+        const statsContainer = document.getElementById('statsContainer');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            generateWorkout();
+        });
+
+        function generateWorkout() {
+            const level = document.getElementById('fitnessLevel').value;
+            const type = document.getElementById('workoutType').value;
+            const duration = document.getElementById('duration').value;
+
+            if (!level || !type) {
+                resultsDiv.innerHTML = '<p class="empty-message">Please select both fitness level and workout type!</p>';
+                return;
+            }
+
+            const exercises = workoutDatabase[level][type];
+            const numExercises = Math.ceil(exercises.length * (duration / 30));
+            const selectedExercises = [];
+
+            for (let i = 0; i < numExercises && i < exercises.length; i++) {
+                selectedExercises.push(exercises[Math.floor(Math.random() * exercises.length)]);
+            }
+
+            displayWorkout(selectedExercises, level, type, duration);
+        }
+
+        function displayWorkout(exercises, level, type, duration) {
+            let html = '<h3>Your Custom Workout</h3>';
+            exercises.forEach((exercise, index) => {
+                html += `
+                    <div class="exercise-item">
+                        <strong>${index + 1}. ${exercise.name}</strong>
+                        <em>Duration: ${exercise.duration} | Intensity: ${exercise.intensity}</em>
+                    </div>
+                `;
+            });
+            html += `
+                <button class="add-btn" onclick="saveWorkout('${level}', '${type}', ${duration})">Save to Tracker</button>
+            `;
+            resultsDiv.innerHTML = html;
+        }
+
+        function saveWorkout(level, type, duration) {
+            const workouts = JSON.parse(localStorage.getItem('workouts')) || [];
+            const date = new Date().toLocaleDateString();
+            workouts.push({ level, type, duration, date });
+            localStorage.setItem('workouts', JSON.stringify(workouts));
+            updateTracker();
+            alert('✅ Workout saved to tracker!');
+        }
+
+        function updateTracker() {
+            const workouts = JSON.parse(localStorage.getItem('workouts')) || [];
+
+            if (workouts.length === 0) {
+                trackerDiv.innerHTML = '<p class="empty-message">No workouts saved yet. Generate and save a workout!</p>';
+                statsContainer.style.display = 'none';
+                return;
+            }
+
+            statsContainer.style.display = 'block';
+            document.getElementById('totalWorkouts').textContent = workouts.length;
+            document.getElementById('totalMinutes').textContent = workouts.reduce((sum, w) => sum + parseInt(w.duration), 0);
+
+            let html = '';
+            workouts.forEach((workout, index) => {
+                html += `
+                    <div class="tracker-item">
+                        <div class="workout-info">
+                            <strong>${workout.type.charAt(0).toUpperCase() + workout.type.slice(1)} (${workout.level})</strong>
+                            <small>${workout.duration} min • ${workout.date}</small>
+                        </div>
+                        <button class="delete-btn" onclick="deleteWorkout(${index})">Delete</button>
+                    </div>
+                `;
+            });
+            trackerDiv.innerHTML = html;
+        }
+
+        function deleteWorkout(index) {
+            const workouts = JSON.parse(localStorage.getItem('workouts')) || [];
+            workouts.splice(index, 1);
+            localStorage.setItem('workouts', JSON.stringify(workouts));
+            updateTracker();
+        }
+
+        updateTracker();
+    </script>
+</body>
+</html>
